@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RH Agency — Local Growth Simplified</title>
+  <meta name="description" content="RH Agency: We help local businesses get seen, get leads, and get paid. Social, Ads, Web & AI AdOps CRM." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CDN for quick prototype -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--bg:#070816;--card:#0f1724;--muted:#94a3b8;--accent1:#7c3aed;--accent2:#06b6d4}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    .hero-bg { background-image: linear-gradient(120deg, rgba(12,14,22,0.65), rgba(3,7,18,0.45)), url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1950&q=60'); background-size: cover; background-position: center; }
+    .glass { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); backdrop-filter: blur(6px); }
+    .mock-card { background: linear-gradient(180deg,#071029,#0b1220); border-radius: 12px; padding: 16px; color: #E6EEF8; box-shadow: 0 8px 30px rgba(2,6,23,0.6); border: 1px solid rgba(255,255,255,0.03);}    
+    /* Futuristic header */
+    .logo-burst{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .nav-cta{box-shadow: 0 6px 24px rgba(99,102,241,0.12);}
+
+    /* service icons */
+    .svc-icon{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border-radius:10px}
+
+    /* mini charts */
+    .sparkline{width:100%;height:64px}
+    .bar-chart{display:flex;gap:6px;align-items:end;height:64px}
+    .bar{width:16px;border-radius:4px}
+
+    /* animated stroke */
+    .line-anim{stroke-dasharray:1000;stroke-dashoffset:1000;animation:dash 2s ease forwards}
+    @keyframes dash{to{stroke-dashoffset:0}}
+
+    /* responsive tweaks */
+    @media (max-width:640px){ .hero-title{font-size:1.6rem} }
+  </style>
+</head>
+<body class="antialiased text-gray-100" style="background:linear-gradient(180deg,#02020a,var(--bg));">
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 backdrop-blur border-b border-gray-800" style="background:linear-gradient(90deg, rgba(3,7,18,0.7), rgba(6,9,15,0.6));">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-18 py-3">
+        <div class="flex items-center gap-4">
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,var(--accent1),var(--accent2));box-shadow:0 6px 22px rgba(14,165,233,0.14);font-weight:800;font-family:Space Grotesk;color:white">RH</div>
+            <div class="hidden sm:block">
+              <div class="logo-burst text-xl font-semibold">RH Agency</div>
+              <div class="text-xs text-gray-400">Local Growth • AI AdOps • Creative</div>
+            </div>
+          </a>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-6 text-gray-300 font-medium">
+          <a href="#services" class="hover:text-white">Services</a>
+          <a href="#work" class="hover:text-white">Case Studies</a>
+          <a href="#pricing" class="hover:text-white">Pricing</a>
+          <a href="#ai-crm" class="hover:text-white">AI CRM</a>
+          <a href="#contact" class="hover:text-white">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="#book" class="hidden md:inline-flex items-center gap-3 nav-cta bg-gradient-to-r from-indigo-600 to-cyan-500 text-white px-4 py-2 rounded-full font-semibold">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"/></svg>
+            Book Free Call
+          </a>
+          <button id="mobileMenuBtn" class="md:hidden p-2 rounded-md bg-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-800">
+      <div class="px-4 py-3 flex flex-col gap-2">
+        <a href="#services" class="py-2">Services</a>
+        <a href="#work" class="py-2">Case Studies</a>
+        <a href="#pricing" class="py-2">Pricing</a>
+        <a href="#ai-crm" class="py-2">AI CRM</a>
+        <a href="#contact" class="py-2">Contact</a>
+        <a href="#book" class="py-2 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white rounded-full text-center">Book Free Call</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-bg py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div class="text-left">
+          <div class="inline-flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 bg-white/6 rounded-full text-xs">Local Growth Partner</span>
+            <span class="text-xs text-gray-300">Trusted across Mira Road, Thane & suburbs</span>
+          </div>
+          <h1 class="hero-title text-4xl sm:text-5xl font-extrabold text-white leading-tight">We Help Local Businesses Get Seen, Get Leads, and Get Paid.</h1>
+          <p class="mt-4 text-gray-300 max-w-xl">RH Agency fuses creative, data and automation — from scroll-stopping content to an AI AdOps CRM that runs campaigns across platforms from one dashboard.</p>
+          <div class="mt-6 flex gap-3">
+            <a href="#book" class="bg-gradient-to-r from-indigo-600 to-cyan-500 px-5 py-3 rounded-full font-semibold shadow-lg">Book Free Strategy Call</a>
+            <a href="#work" class="border border-gray-700 px-5 py-3 rounded-full text-gray-200">View Our Work</a>
+          </div>
+          <div class="mt-6 flex items-center gap-4 text-gray-300">
+            <div class="flex items-center gap-2"><strong class="text-white">80+</strong><span class="text-sm">Local Clients</span></div>
+            <div class="flex items-center gap-2"><strong class="text-white">1,000+</strong><span class="text-sm">Leads Generated</span></div>
+            <div class="flex items-center gap-2"><strong class="text-white">Avg 4.3x</strong><span class="text-sm">Campaign ROI</span></div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="rounded-xl overflow-hidden shadow-xl glass p-6">
+            <!-- Enhanced dashboard mockup with SVG charts -->
+            <div class="mock-card">
+              <div class="flex items-center justify-between mb-3">
+                <div>
+                  <div class="text-sm text-gray-300">AdOps Overview</div>
+                  <div class="text-2xl font-bold">ROAS <span class="text-green-400">3.8x</span></div>
+                </div>
+                <div class="text-right text-xs text-gray-400">Last 30 days</div>
+              </div>
+
+              <!-- Sparkline (SVG) -->
+              <svg viewBox="0 0 200 60" class="sparkline mb-3" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="g1" x1="0" x2="1">
+                    <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.6" />
+                    <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.2" />
+                  </linearGradient>
+                </defs>
+                <polyline points="0,50 20,42 40,30 60,34 80,22 100,28 120,18 140,20 160,12 180,8 200,10" fill="none" stroke="url(#g1)" stroke-width="3" class="line-anim" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="0" y="0" width="200" height="60" fill="transparent"/>
+              </svg>
+
+              <div class="grid grid-cols-2 gap-3 text-xs text-gray-300 mb-3">
+                <div class="p-3 bg-white/5 rounded">
+                  <div class="font-semibold">Spend</div>
+                  <div class="text-sm">₹ 1.2L</div>
+                </div>
+                <div class="p-3 bg-white/5 rounded">
+                  <div class="font-semibold">Leads</div>
+                  <div class="text-sm">312</div>
+                </div>
+                <div class="p-3 bg-white/5 rounded">
+                  <div class="font-semibold">CPL</div>
+                  <div class="text-sm">₹ 385</div>
+                </div>
+                <div class="p-3 bg-white/5 rounded">
+                  <div class="font-semibold">Impr.</div>
+                  <div class="text-sm">98k</div>
+                </div>
+              </div>
+
+              <!-- Mini bar chart -->
+              <div class="bar-chart mb-2">
+                <div class="bar" style="height:32px;background:linear-gradient(180deg,#06b6d4,#7c3aed)"></div>
+                <div class="bar" style="height:46px;background:linear-gradient(180deg,#06b6d4,#7c3aed)"></div>
+                <div class="bar" style="height:24px;background:linear-gradient(180deg,#06b6d4,#7c3aed)"></div>
+                <div class="bar" style="height:56px;background:linear-gradient(180deg,#06b6d4,#7c3aed)"></div>
+                <div class="bar" style="height:40px;background:linear-gradient(180deg,#06b6d4,#7c3aed)"></div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <div class="text-xs text-gray-400">Top Campaign: Salon Mira Road</div>
+                <div class="text-xs text-gray-400">Suggested: Increase budget on 2</div>
+              </div>
+            </div>
+            <div class="mt-4 text-center text-xs text-gray-400">AI CRM Dashboard placeholder — live demo shows full analytics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (visual grid) -->
+  <section id="services" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="text-2xl font-bold">Services — Visual & Modular</h2>
+          <p class="text-gray-400">Choose core packages or mix-and-match add-ons — visuals show outcomes clearly.</p>
+        </div>
+        <a href="#pricing" class="text-indigo-400 hover:text-indigo-300">See Pricing</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- card with icon + tiny chart -->
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-start gap-4">
+            <div class="svc-icon bg-gradient-to-tr from-indigo-600 to-cyan-400">
+              <!-- simple social svg -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 2h-3a4 4 0 0 0-4 4v3H8v4h3v8h4v-8h3l1-4h-4V6a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold">Social Media Management</h4>
+              <p class="text-gray-400 text-sm mt-1">Local content, reels, and community growth.</p>
+              <div class="mt-3">
+                <div class="bar-chart">
+                  <div class="bar" style="height:18px;background:#7c3aed"></div>
+                  <div class="bar" style="height:28px;background:#7c3aed"></div>
+                  <div class="bar" style="height:42px;background:#7c3aed"></div>
+                  <div class="bar" style="height:36px;background:#7c3aed"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-start gap-4">
+            <div class="svc-icon bg-gradient-to-tr from-yellow-500 to-red-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold">Local Ads & SEO</h4>
+              <p class="text-gray-400 text-sm mt-1">Footfall-driving search & targeted ads.</p>
+              <div class="mt-3 flex gap-2 text-xs text-gray-300">
+                <div class="p-2 bg-white/5 rounded">Impr.↑</div>
+                <div class="p-2 bg-white/5 rounded">Calls↑</div>
+                <div class="p-2 bg-white/5 rounded">Bookings↑</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-start gap-4">
+            <div class="svc-icon bg-gradient-to-tr from-pink-600 to-indigo-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold">Web & Landing Pages</h4>
+              <p class="text-gray-400 text-sm mt-1">Conversion-first landing pages and local SEO structure.</p>
+              <div class="mt-3 text-xs text-gray-400">Avg load: <strong>0.9s</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-start gap-4">
+            <div class="svc-icon bg-gradient-to-tr from-green-500 to-teal-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20v-6"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold">Content Creation</h4>
+              <p class="text-gray-400 text-sm mt-1">Reels, short-video, and carousel systems that convert.</p>
+              <div class="mt-3">
+                <svg width="120" height="60" viewBox="0 0 120 60" class="sparkline" preserveAspectRatio="none">
+                  <polyline points="0,50 20,35 40,30 60,25 80,20 100,18 120,10" fill="none" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- repeat essential services visually -->
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-start gap-4">
+            <div class="svc-icon bg-gradient-to-tr from-indigo-500 to-purple-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold">Reputation & Reviews</h4>
+              <p class="text-gray-400 text-sm mt-1">Automated review funnels and response templates.</p>
+              <div class="mt-3 text-xs text-gray-400">Avg rating uplift: <strong>+0.8</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-start gap-4">
+            <div class="svc-icon bg-gradient-to-tr from-indigo-400 to-sky-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold">Performance Analytics</h4>
+              <p class="text-gray-400 text-sm mt-1">Dashboards, alerts and white-label reports.</p>
+              <div class="mt-3 text-xs text-gray-400">Weekly insights delivered to inbox</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-start gap-4">
+            <div class="svc-icon bg-gradient-to-tr from-rose-500 to-pink-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20v-6"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold">Photo & Video Shoots</h4>
+              <p class="text-gray-400 text-sm mt-1">In-store, product and staff shoots.</p>
+              <div class="mt-3 text-xs text-gray-400">Includes 20 edited assets</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-800">
+          <div class="flex items-start gap-4">
+            <div class="svc-icon bg-gradient-to-tr from-green-600 to-emerald-400">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18"/></svg>
+            </div>
+            <div>
+              <h4 class="font-semibold">Email & SMS Funnels</h4>
+              <p class="text-gray-400 text-sm mt-1">Nurture leads into returning customers.</p>
+              <div class="mt-3 text-xs text-gray-400">Open rate avg: <strong>28%</strong></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AI CRM FEATURE BLOCK -->
+  <section id="ai-crm" class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-3 py-1 bg-indigo-700 text-white rounded-full text-sm">Bestseller</span>
+            <h2 class="text-2xl font-bold">AI CRM — AdOps Suite</h2>
+          </div>
+          <p class="text-gray-300">Run Google, Meta and local ad platforms from a single AI-powered dashboard. Automate budgets, generate creative variants and get white-label reports — all from one place.</p>
+
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 bg-gray-800 rounded-lg">
+              <h4 class="font-semibold">Multi-Platform Management</h4>
+              <p class="text-gray-400 text-sm mt-2">Create and push campaigns to Google & Meta with API-native connectors.</p>
+            </div>
+            <div class="p-4 bg-gray-800 rounded-lg">
+              <h4 class="font-semibold">AI Budget Optimization</h4>
+              <p class="text-gray-400 text-sm mt-2">Auto-reallocate spend to hits and pause underperformers.</p>
+            </div>
+            <div class="p-4 bg-gray-800 rounded-lg">
+              <h4 class="font-semibold">Creative-to-Variant Engine</h4>
+              <p class="text-gray-400 text-sm mt-2">Auto-generate variants and A/B test at scale across platforms.</p>
+            </div>
+            <div class="p-4 bg-gray-800 rounded-lg">
+              <h4 class="font-semibold">Unified Reporting</h4>
+              <p class="text-gray-400 text-sm mt-2">One dashboard for impressions, clicks, spend, conversions and ROAS.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 flex gap-3">
+            <button class="bg-gradient-to-r from-indigo-600 to-cyan-500 px-4 py-2 rounded-full font-semibold" onclick="openDemo()">Request Demo</button>
+            <a href="#pricing" class="border border-gray-700 px-4 py-2 rounded-full">See Plans & Pricing</a>
+          </div>
+        </div>
+        <div>
+          <!-- Dashboard mockup expanded with more charts -->
+          <div class="mock-card">
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <div class="text-xs text-gray-300">Overview</div>
+                <div class="text-lg font-bold">Multi-Account Performance</div>
+              </div>
+              <div class="text-xs text-gray-400">30d</div>
+            </div>
+
+            <!-- composite chart (bars + line) -->
+            <svg viewBox="0 0 300 140" width="100%" height="140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="mb-3">
+              <!-- bars -->
+              <rect x="20" y="70" width="20" height="50" rx="4" fill="#7c3aed"/>
+              <rect x="50" y="50" width="20" height="70" rx="4" fill="#7c3aed"/>
+              <rect x="80" y="90" width="20" height="30" rx="4" fill="#7c3aed"/>
+              <rect x="110" y="40" width="20" height="80" rx="4" fill="#7c3aed"/>
+              <rect x="140" y="60" width="20" height="60" rx="4" fill="#7c3aed"/>
+
+              <!-- line overlay -->
+              <polyline points="10,88 30,78 60,62 90,68 120,44 150,56 180,36 210,40" fill="none" stroke="#06b6d4" stroke-width="3" class="line-anim" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+
+            <div class="grid grid-cols-2 gap-3 text-xs text-gray-300 mb-3">
+              <div class="p-2 bg-white/5 rounded">Total Spend<br><strong class="text-white">₹1.2L</strong></div>
+              <div class="p-2 bg-white/5 rounded">Conversions<br><strong class="text-white">312</strong></div>
+            </div>
+
+            <div class="flex gap-2 text-xs">
+              <div class="flex-1 p-2 bg-white/5 rounded">Top Campaign: Salon Mira Road</div>
+              <div class="flex-1 p-2 bg-white/5 rounded">Sched. Report: Mon 9:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK / CASE STUDIES -->
+  <section id="work" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="text-2xl font-bold">Case Studies — Local Wins</h2>
+          <p class="text-gray-400">Short, measurable results from businesses like yours.</p>
+        </div>
+        <a href="#" class="text-indigo-400">View All Case Studies</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Case 1 -->
+        <article class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+          <img src="https://images.unsplash.com/photo-1541542684-0a9f5d7ec6c0?auto=format&fit=crop&w=1200&q=60" alt="Salon" class="h-40 w-full object-cover rounded-md mb-4">
+          <h3 class="font-semibold">Mira Road Salon — Bookings +240% in 3 months</h3>
+          <p class="text-gray-400 text-sm mt-2">Local SEO, Reels and targeted Meta ads drove more walk-ins and bookings.</p>
+        </article>
+        <!-- Case 2 -->
+        <article class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+          <img src="https://images.unsplash.com/photo-1542736667-069246bdbc34?auto=format&fit=crop&w=1200&q=60" alt="Dental" class="h-40 w-full object-cover rounded-md mb-4">
+          <h3 class="font-semibold">Dental Studio — 4x ROAS on Google Ads</h3>
+          <p class="text-gray-400 text-sm mt-2">Search + GBP optimization and conversion-focused landing pages.</p>
+        </article>
+        <!-- Case 3 -->
+        <article class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=60" alt="Cafe" class="h-40 w-full object-cover rounded-md mb-4">
+          <h3 class="font-semibold">Local Café — 3k+ monthly reach on social</h3>
+          <p class="text-gray-400 text-sm mt-2">Content + community management and weekend event promos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS + MAP -->
+  <section class="py-16 bg-gray-850">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div>
+          <h2 class="text-2xl font-bold">What Local Owners Say</h2>
+          <p class="text-gray-400">Short quotes, measurable outcomes.</p>
+          <div class="mt-6 space-y-4">
+            <div class="p-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded">
+              <div class="text-sm text-gray-300">"RH Agency transformed our bookings — we were full in two months."</div>
+              <div class="mt-2 text-xs text-gray-400">— Priya (Salon Owner)</div>
+            </div>
+            <div class="p-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded">
+              <div class="text-sm text-gray-300">"The AI CRM saved us hours every week and increased our ROAS."</div>
+              <div class="mt-2 text-xs text-gray-400">— Arjun (Café Owner)</div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+            <h3 class="font-semibold">Clients Served (Map)</h3>
+            <p class="text-gray-400 text-sm mt-2">Map placeholder showing pins for Mira Road, Thane and nearby areas.</p>
+            <div class="mt-4 h-64 bg-gray-900 rounded flex items-center justify-center text-gray-600">[Map Embed Placeholder]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING (unchanged) -->
+  <section id="pricing" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl font-bold">Packages & Pricing</h2>
+        <p class="text-gray-400">Transparent, local-first pricing. Custom quotes available.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+          <div class="text-sm text-gray-400">Starter Boost</div>
+          <div class="text-2xl font-bold mt-2">₹10,000 / mo</div>
+          <p class="text-gray-300 mt-2 text-sm">Google Business + 1 platform social + 2 creatives/week.</p>
+          <ul class="mt-4 text-gray-400 text-sm space-y-2">
+            <li>GBP optimization</li>
+            <li>1 platform posting</li>
+            <li>Monthly report</li>
+          </ul>
+          <div class="mt-4"><button class="w-full bg-gradient-to-r from-indigo-600 to-cyan-500 px-4 py-2 rounded-full">Choose Starter</button></div>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg border-2 border-indigo-600">
+          <div class="text-sm text-gray-400">Growth Package</div>
+          <div class="text-2xl font-bold mt-2">₹20,000 / mo</div>
+          <p class="text-gray-300 mt-2 text-sm">2 platforms, ads setup, landing page revamp.</p>
+          <ul class="mt-4 text-gray-400 text-sm space-y-2">
+            <li>2 platforms social</li>
+            <li>Google/Meta ads (basic)</li>
+            <li>Conversion landing</li>
+          </ul>
+          <div class="mt-4"><button class="w-full bg-indigo-500 px-4 py-2 rounded-full">Choose Growth</button></div>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+          <div class="text-sm text-gray-400">Dominate Local</div>
+          <div class="text-2xl font-bold mt-2">₹30,000 / mo</div>
+          <p class="text-gray-300 mt-2 text-sm">Full social, ads, creative & analytics — hands-off growth.</p>
+          <ul class="mt-4 text-gray-400 text-sm space-y-2">
+            <li>Full social + ads</li>
+            <li>AI CRM add-on option</li>
+            <li>Weekly reporting & optimizations</li>
+          </ul>
+          <div class="mt-4"><button class="w-full bg-gradient-to-r from-indigo-600 to-cyan-500 px-4 py-2 rounded-full">Choose Premium</button></div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-lg">
+        <h3 class="font-semibold">Bestsellers / Add-ons</h3>
+        <p class="text-gray-400 text-sm mt-2">AI CRM — AdOps Suite is available as an add-on or standalone SaaS for higher-tier clients.</p>
+        <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-4 bg-gray-700 rounded">
+            <div class="font-semibold">AdOps Starter</div>
+            <div class="text-sm text-gray-300">Manage up to 2 platforms, weekly reports. ₹12,000 / mo</div>
+          </div>
+          <div class="p-4 bg-yellow-700 rounded">
+            <div class="font-semibold">AdOps Pro (SaaS + Managed)</div>
+            <div class="text-sm text-gray-900">Full automation, AI optimizer, multi-location. ₹45,000 / mo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold">How We Work</h2>
+      <p class="text-gray-400">Fast, measurable process focused on local impact.</p>
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+          <div class="font-semibold">1. Audit</div>
+          <p class="text-gray-400 text-sm mt-2">We analyze your presence and conversion leaks.</p>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+          <div class="font-semibold">2. Plan</div>
+          <p class="text-gray-400 text-sm mt-2">We build a data-backed local growth plan.</p>
+        </div>
+        <div class="p-6 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg">
+          <div class="font-semibold">3. Execute & Scale</div>
+          <p class="text-gray-400 text-sm mt-2">Launch campaigns, report, and optimize continuously.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / LEAD CAPTURE (unchanged) -->
+  <section id="contact" class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div>
+          <h2 class="text-2xl font-bold">Let’s Grow Your Local Brand</h2>
+          <p class="text-gray-400 mt-2">Book your free growth call or request a demo for the AI CRM.</p>
+          <div class="mt-6 space-y-4">
+            <div class="p-4 bg-gray-900 rounded">
+              <div class="text-sm text-gray-300">Phone</div>
+              <div class="text-gray-200">+91 9XXXXXXXXX</div>
+            </div>
+            <div class="p-4 bg-gray-900 rounded">
+              <div class="text-sm text-gray-300">Email</div>
+              <div class="text-gray-200">hello@rh-agency.example</div>
+            </div>
+            <div class="p-4 bg-gray-900 rounded">
+              <div class="text-sm text-gray-300">Address</div>
+              <div class="text-gray-200">Mira Road, Mumbai - Local Operations</div>
+            </div>
+          </div>
+        </div>
+        <form id="leadForm" class="space-y-4" onsubmit="submitLead(event)">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input required name="name" placeholder="Your name" class="p-3 bg-gray-900 rounded border border-gray-700" />
+            <input required name="business" placeholder="Business name / type" class="p-3 bg-gray-900 rounded border border-gray-700" />
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <input required name="phone" placeholder="WhatsApp / Phone" class="p-3 bg-gray-900 rounded border border-gray-700" />
+            <input name="email" placeholder="Email (optional)" class="p-3 bg-gray-900 rounded border border-gray-700" />
+          </div>
+          <select name="interest" class="p-3 bg-gray-900 rounded border border-gray-700">
+            <option value="strategy">Book Free Strategy Call</option>
+            <option value="ai_crm">Request AI CRM Demo</option>
+            <option value="pricing">Get Pricing/Quote</option>
+          </select>
+          <div class="flex gap-3">
+            <button type="submit" class="bg-gradient-to-r from-indigo-600 to-cyan-500 px-4 py-2 rounded-full">Book My Free Call</button>
+            <button type="button" onclick="openDemo()" class="border border-gray-700 px-4 py-2 rounded-full">Request Demo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-800 py-8">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="text-sm text-gray-400">© <strong>RH Agency</strong> — Local Growth Simplified</div>
+      <div class="flex items-center gap-4 text-gray-300">
+        <a href="#" class="text-gray-400 hover:text-white">Privacy</a>
+        <a href="#" class="text-gray-400 hover:text-white">Terms</a>
+        <a href="#" class="text-gray-400 hover:text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Demo Modal (unchanged) -->
+  <div id="demoModal" class="fixed inset-0 hidden items-center justify-center bg-black/60 z-50">
+    <div class="w-full max-w-2xl bg-gray-900 rounded-lg p-6 border border-gray-800">
+      <div class="flex items-center justify-between">
+        <h3 class="text-xl font-bold">Request AI CRM Demo</h3>
+        <button onclick="closeDemo()" class="text-gray-400">Close</button>
+      </div>
+      <p class="text-gray-400 mt-2">Tell us which ad accounts you want to map and your typical monthly ad spend.</p>
+      <form onsubmit="submitDemo(event)" class="mt-4 space-y-3">
+        <input name="name" required placeholder="Your name" class="w-full p-3 bg-gray-900 rounded border border-gray-700" />
+        <input name="email" placeholder="Email" class="w-full p-3 bg-gray-900 rounded border border-gray-700" />
+        <input name="phone" placeholder="Phone / WhatsApp" class="w-full p-3 bg-gray-900 rounded border border-gray-700" />
+        <input name="spend" placeholder="Monthly ad spend (approx)" class="w-full p-3 bg-gray-900 rounded border border-gray-700" />
+        <div class="flex gap-3">
+          <button class="bg-gradient-to-r from-indigo-600 to-cyan-500 px-4 py-2 rounded">Request Demo</button>
+          <button type="button" onclick="closeDemo()" class="border border-gray-700 px-4 py-2 rounded">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Mobile nav toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Demo modal handlers
+    function openDemo(){ document.getElementById('demoModal').classList.remove('hidden'); document.getElementById('demoModal').classList.add('flex'); }
+    function closeDemo(){ document.getElementById('demoModal').classList.remove('flex'); document.getElementById('demoModal').classList.add('hidden'); }
+
+    // Simple form handlers (placeholder behaviour)
+    function submitLead(e){ e.preventDefault(); const f = e.target; alert('Thanks ' + (f.name.value || '') + '! We received your request.'); f.reset(); }
+    function submitDemo(e){ e.preventDefault(); const f = e.target; alert('Demo requested. We will reach out to ' + (f.name.value || 'you') + '.'); closeDemo(); }
+  </script>
+</body>
+</html>
